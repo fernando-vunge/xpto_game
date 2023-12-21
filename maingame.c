@@ -3,19 +3,23 @@
 int main(int argc, char const *argv[])
 {
     int menu_option;
+    int exit_game = 0;
+    char caracter_aspect = 'o';
 
-    menu_option = ft_init_game();
-    if (menu_option == 0)
+    while (!exit_game)
     {
-        printf("Starting the game");
-    }
-    else if (menu_option == 1)
-    {
-        printf("Showing the settings");
-    }
-    else{
-        printf("logout the game");
-        return (0);
-    }
+        menu_option = ft_init_game();
+        if (menu_option == 0)
+        {
+            printf("Starting the game");
+        }
+        else if (menu_option == 1)
+        {
+            
+        }
+        else{
+            exit_game = 1;
+        }
+    }    
     return (0);
 }

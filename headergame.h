@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 int	ft_init_game(void);
+void	
 char	getch(void);
 
 char getch() {
