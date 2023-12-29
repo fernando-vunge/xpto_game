@@ -3,8 +3,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	ft_init_game(void);
-void	
+int	show_info = 1;
+
+int	ft_init_game(void);	
 char	getch(void);
 
 char getch() {
@@ -48,6 +49,13 @@ int	ft_init_game(void){
 			indexer++;
 		}
 		printf("< ------------------------------------- >\n");
+		if (show_info)
+		{
+			printf("\n< ------------------------------------- >\n");
+			printf("|\t w -> cima     (up)    \t\t|\n|\t s -> baixo    (down)  \t\t|\n|\t a -> esquerda (left)  \t\t|\n|\t d -> direita  (rigth) \t\t|\n|\t space -> selecionar  (select)  |\n");
+			printf("< ------------------------------------- >\n");
+			show_info = 0;
+		}
 		button_clicked = getch();
 		selected_conditions[selected_index] = 0;
 		{
