@@ -85,7 +85,7 @@ int	ft_init_game(void){
 	return (selected_index);
 }
 
-int	ft_game(int *p_grid_size, char *p_caracter){
+int	ft_render_game(int *p_grid_size, char *p_caracter){
 	char grid[*p_grid_size][*p_grid_size];
 	char caracter = *p_caracter;
 	int perdeu = 0;
