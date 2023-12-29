@@ -1,2 +1,2 @@
-# 15.4% completed
+# 21.4% completed
 a simple game, made with C language to run into terminal
