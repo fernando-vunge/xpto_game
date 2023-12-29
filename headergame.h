@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 int	show_info = 1;
-int	ft_game(int *p_grid_size, char *p_caracter);
+int	ft_render_game(int grid_size, char caracter_aspect);
 int	ft_init_game(void);	
 char	getch(void);
 
@@ -31,8 +31,8 @@ char getch() {
 
 int	ft_init_game(void){	
 	const char *menu_options[3] = {"Start Game", "Settings", "Exit Game"};
-	int selected_conditions[3] = {0, 1, 0};
-	int selected_index = 1;
+	int selected_conditions[3] = {1, 0, 0};
+	int selected_index = 0;
 	int indexer;
 	char button_clicked;
 
@@ -44,7 +44,7 @@ int	ft_init_game(void){
 		indexer = 0;
 		while (indexer < 3)
 		{
-			printf("\t%s%s%s\n", (selected_conditions[indexer] ? "<- ":"   "), menu_options[indexer], (selected_conditions[indexer] ? " ->":"   "));
+			printf("\t%s%s%s\n", (selected_conditions[indexer] ? "-> ":"   "), menu_options[indexer], (selected_conditions[indexer] ? " <-":"   "));
 			indexer++;
 		}
 		printf("< ------------------------------------- >\n");
@@ -57,23 +57,27 @@ int	ft_init_game(void){
 		}
 		button_clicked = getch();
 		selected_conditions[selected_index] = 0;
-		{
-			if (button_clicked == 'w' || button_clicked == 'W') selected_index = selected_index - 1;
-			else if (button_clicked == 's' || button_clicked == 'S') selected_index = selected_index + 1;
-		}
-		{
-			if (selected_index < 0) selected_index = 2;
-			else if(selected_index > 2) selected_index = 0;
-		}
+			if (button_clicked == 'w' || button_clicked == 'W')
+			{
+				--selected_index;
+				if (selected_index < 0) 
+					selected_index = 2;
+			} 
+			else if (button_clicked == 's' || button_clicked == 'S')
+			{
+				++selected_index;
+				if (selected_index > 2)
+					selected_index = 0;
+			}
 		selected_conditions[selected_index] = 1;
 	}
 	return (selected_index);
 }
 
-int	ft_render_game(int *p_grid_size, char *p_caracter){
-	int columm_qtd = *p_grid_size;
-	int row_qtd = *p_grid_size;
-	char caracter = *p_caracter;
+int	ft_render_game(int grid_size, char caracter_aspect){
+	int columm_qtd = grid_size;
+	int row_qtd = grid_size;
+	char caracter = caracter_aspect;
 	char grid[row_qtd][columm_qtd];
 	int perdeu = 0;
 	int venceu = 0;
@@ -103,7 +107,7 @@ int	ft_render_game(int *p_grid_size, char *p_caracter){
 			row_num++;
 			columm_num = 0;
 		}
-		
+		system("clear");
 	}
 	return (0);
 }
