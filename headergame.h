@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 int show_info = 1;
+void	ft_show_settings(void);
 int ft_render_game(int grid_size, char caracter_aspect);
 int ft_init_game(void);
 char getch(void);
@@ -32,7 +33,7 @@ char getch()
 
 int ft_init_game(void)
 {
-	const char *menu_options[3] = {"Start Game", "Settings", "Exit Game"};
+	const char *menu_options[3] = {" Start Game ", "  Settings  ", "  Exit Game "};
 	int selected_conditions[3] = {1, 0, 0};
 	int selected_index = 0;
 	int indexer;
@@ -95,11 +96,11 @@ int ft_render_game(int grid_size, char caracter_aspect)
 		columm_num = 0;
 	}
 
-	int perdeu = 0;
-	int venceu = 0;
+	perdeu = 0;
+	venceu = 0;
 	columm_num = 0;
 	row_num = 0;
-	
+
 	while (!perdeu && !venceu)
 	{
 		while (row_num < grid_size)
