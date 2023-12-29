@@ -17,6 +17,7 @@ int main(int argc, char const *argv[])
         menu_option = ft_init_game();
         if (menu_option == 0)
         {
+            printf("starting the game");
             ft_render_game(p_grid_size,p_caracter_aspect);    
         }
         else if (menu_option == 1)
