@@ -7,7 +7,6 @@ int	show_info = 1;
 int	ft_game(int *p_grid_size, char *p_caracter);
 int	ft_init_game(void);	
 char	getch(void);
-void	init_char_grid(char *(p_grid)[], int size, char fill);
 
 char getch() {
     char buf = 0;
@@ -28,20 +27,6 @@ char getch() {
     if (tcsetattr(0, TCSADRAIN, &old) < 0)
         perror("tcsetattr ~ICANON");
     return buf;
-}
-
-void	init_char_grid(char *(p_grid)[], int size, char fill){
-	int row = 0;
-	int columm = 0;
-
-	while (row < size)
-	{
-		while (columm < size)
-		{
-			p_grid[row][columm++] = fill;
-		}
-		row++;
-	}
 }
 
 int	ft_init_game(void){	
@@ -85,28 +70,39 @@ int	ft_init_game(void){
 	return (selected_index);
 }
 
-int	ft_render_game(int *p_grid_size, char *p_caracter){
-	char grid[*p_grid_size][*p_grid_size];
-	char caracter = *p_caracter;
+int	ft_render_game(int grid_size, char caracter){
+	int columm_qtd = grid_size;
+	int row_qtd = grid_size;
+	char grid[row_qtd][columm_qtd];
 	int perdeu = 0;
 	int venceu = 0;
 	int columm_num = 0;
 	int row_num = 0;
 
-	init_char_grid(grid,*p_grid_size,'_');
+	while (row_num < row_qtd)
+	{
+		while (columm_num < columm_qtd)
+		{
+			grid[row_num][columm_num] = caracter;
+		}
+		row_num++;
+		columm_num = 0;
+	}
+	columm_num = 0;
+	row_num = 0;
 	while (!perdeu && !venceu)
 	{
-		while (row_num < *p_grid_size)
+		while (row_num < row_qtd)
 		{
-			while (columm_num < *p_grid_size)
+			while (columm_num < columm_qtd)
 			{
 				printf("\t%c",grid[row_num][columm_num++]);
 			}
 			printf("\n");
 			row_num++;
+			columm_num = 0;
 		}
 		
 	}
-	
 	return (0);
 }
