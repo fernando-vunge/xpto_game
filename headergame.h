@@ -78,12 +78,12 @@ int ft_init_game(void)
 
 int ft_render_game(int grid_size, char caracter_aspect)
 {
-	int perdeu = 0;
-	int venceu = 0;
+	int perdeu;
+	int venceu;
 	int columm_num = 0;
 	int row_num = 0;
 	char grid[grid_size][grid_size];
-	int line_num = 0;
+	int line_num;
 
 	while (row_num < grid_size)
 	{
@@ -94,8 +94,12 @@ int ft_render_game(int grid_size, char caracter_aspect)
 		row_num++;
 		columm_num = 0;
 	}
+
+	int perdeu = 0;
+	int venceu = 0;
 	columm_num = 0;
 	row_num = 0;
+	
 	while (!perdeu && !venceu)
 	{
 		while (row_num < grid_size)
@@ -104,10 +108,11 @@ int ft_render_game(int grid_size, char caracter_aspect)
 			{
 				printf("\t%c", grid[row_num][columm_num++]);
 			}
-			while (line_num < (6 / grid_size)*4)
+			line_num = 0;
+			while (line_num < (24 / grid_size))
 			{
 				printf("\n");
-				++line_num;
+				line_num++;
 			}
 			row_num++;
 			columm_num = 0;
