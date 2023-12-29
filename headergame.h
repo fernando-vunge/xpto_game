@@ -70,9 +70,10 @@ int	ft_init_game(void){
 	return (selected_index);
 }
 
-int	ft_render_game(int grid_size, char caracter){
-	int columm_qtd = grid_size;
-	int row_qtd = grid_size;
+int	ft_render_game(int *p_grid_size, char *p_caracter){
+	int columm_qtd = *p_grid_size;
+	int row_qtd = *p_grid_size;
+	char caracter = *p_caracter;
 	char grid[row_qtd][columm_qtd];
 	int perdeu = 0;
 	int venceu = 0;
