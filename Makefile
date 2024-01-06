@@ -1,2 +1,5 @@
 bin/XptoGame: maingame.c headergame.h
-	gcc maingame.c headergame.h -o bin/XptoGame && ./bin/XptoGame
+	gcc maingame.c headergame.h -o bin/XptoGame
+
+run:
+	./bin/XptoGame
