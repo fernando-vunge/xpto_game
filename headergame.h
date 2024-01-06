@@ -103,6 +103,7 @@ int ft_render_game(int grid_size, char caracter_aspect)
 
 	while (!perdeu && !venceu)
 	{
+		printf("\n");
 		while (row_num < grid_size)
 		{
 			while (columm_num < grid_size)
@@ -118,6 +119,7 @@ int ft_render_game(int grid_size, char caracter_aspect)
 			row_num++;
 			columm_num = 0;
 		}
+	system("clear");
 	}
 	return (0);
 }
